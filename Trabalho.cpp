@@ -9,7 +9,7 @@
     #define CLEAR "clear"
 #endif
 
-// Declaração da função imprimirVetor
+// DeclaraÃ§Ã£o da funÃ§Ã£o imprimirVetor
 void imprimirVetor(int vetor[], int tamanho);
 
 void troca(int *a, int *b) {
@@ -23,7 +23,7 @@ void bubbleSort(int vetor[], int tamanho) {
     int i, j;
     int trocado;
     for (i = 0; i < tamanho - 1; i++) {
-        trocado = 0; // Reinicializa o indicador de troca a cada iteração
+        trocado = 0; // Reinicializa o indicador de troca a cada iteraÃ§Ã£o
         for (j = 0; j < tamanho - i - 1; j++) {
             if (vetor[j] > vetor[j + 1]) {
                 troca(&vetor[j], &vetor[j + 1]);
@@ -32,7 +32,7 @@ void bubbleSort(int vetor[], int tamanho) {
                 imprimirVetor(vetor, tamanho);
             }
         }
-        // Se não houve troca, o vetor já está ordenado
+        // Se nÃ£o houve troca, o vetor jÃ¡ estÃ¡ ordenado
         if (trocado == 0) {
             break;
         }
@@ -57,7 +57,7 @@ void selectionSort(int vetor[], int tamanho) {
     }
 }
 
-// Esta função é para inserir elemento em ordem
+// Esta funÃ§Ã£o Ã© para inserir elemento em ordem
 void inserir(int vetor[], int posicao, int valor) {
     int i;
     for (i = posicao; i > 0 && vetor[i - 1] > valor; i--) {
@@ -76,7 +76,7 @@ void insertionSort(int vetor[], int tamanho) {
     }
 }
 
-// Esta função imprime o vetor!
+// Esta funÃ§Ã£o imprime o vetor!
 void imprimirVetor(int vetor[], int tamanho) {
     int i;
     for (i = 0; i < tamanho; i++) {
@@ -85,12 +85,12 @@ void imprimirVetor(int vetor[], int tamanho) {
     printf("\n");
 }
 
-// Função para limpar a tela
+// FunÃ§Ã£o para limpar a tela
 void limparTela() {
     system(CLEAR);
 }
 
-// Função para copiar o vetor
+// FunÃ§Ã£o para copiar o vetor
 void copiarVetor(int origem[], int destino[], int tamanho) {
     for (int i = 0; i < tamanho; i++) {
         destino[i] = origem[i];
@@ -108,13 +108,13 @@ int main() {
     do {
         limparTela();
         printf("========================================\n");
-        printf("Escolha o método de ordenação:\n");
+        printf("Escolha o mÃ©todo de ordenaÃ§Ã£o:\n");
         printf("1. Bubble Sort\n");
         printf("2. Selection Sort\n");
         printf("3. Insertion Sort\n");
         printf("4. Sair\n");
         printf("========================================\n");
-        printf("Digite sua opção: ");
+        printf("Digite sua opÃ§Ã£o: ");
         scanf("%d", &opcao);
 
         if (opcao == 4) {
@@ -122,7 +122,7 @@ int main() {
             break;
         }
 
-        copiarVetor(vetor, vetorTemp, tamanho); // Garantir que vetorTemp seja desordenado antes de cada método
+        copiarVetor(vetor, vetorTemp, tamanho); // Garantir que vetorTemp seja desordenado antes de cada mÃ©todo
         limparTela();
         printf("\nVetor desordenado:\n");
         imprimirVetor(vetorTemp, tamanho);
@@ -136,23 +136,23 @@ int main() {
                 imprimirVetor(vetorTemp, tamanho);
                 break;
             case 2:
-                copiarVetor(vetor, vetorTemp, tamanho); // Garantir que vetorTemp seja desordenado antes de Selection Sort
+                copiarVetor(vetor, vetorTemp, tamanho); 
                 printf("\nUsando Selection Sort:\n");
-                printf("Selection Sort funciona encontrando repetidamente o menor elemento de uma lista não ordenada e movendo-o para o início.\n");
+                printf("Selection Sort funciona encontrando repetidamente o menor elemento de uma lista nÃ£o ordenada e movendo-o para o inÃ­cio.\n");
                 selectionSort(vetorTemp, tamanho);
                 printf("\nVetor ordenado usando Selection Sort:\n");
                 imprimirVetor(vetorTemp, tamanho);
                 break;
             case 3:
-                copiarVetor(vetor, vetorTemp, tamanho); // Garantir que vetorTemp seja desordenado antes de Insertion Sort
+                copiarVetor(vetor, vetorTemp, tamanho); 
                 printf("\nUsando Insertion Sort:\n");
-                printf("Insertion Sort funciona construindo gradualmente a lista ordenada, comparando cada novo elemento com os elementos já ordenados e inserindo-o na posição correta.\n");
+                printf("Insertion Sort funciona construindo gradualmente a lista ordenada, comparando cada novo elemento com os elementos jÃ¡ ordenados e inserindo-o na posiÃ§Ã£o correta.\n");
                 insertionSort(vetorTemp, tamanho); 	
                 printf("\nVetor ordenado usando Insertion Sort:\n");
                 imprimirVetor(vetorTemp, tamanho);
                 break;
             default:
-                printf("\nOpção inválida!\n");
+                printf("\nOpÃ§Ã£o invÃ¡lida!\n");
         }
 
         printf("========================================\n");
